@@ -1,1 +1,79 @@
 
+public class Uimastermind {
+	// clase para leer los argumentos
+	private int longitudCombinacion;
+	private int numeroIntentos;
+	private boolean repetidos;
+
+	public Uimastermind(String[] args) {
+		if (args.length != 3) {
+			System.out.println("numero erroneo de argumentos");
+			System.exit(0);
+		} 
+		else 
+			this.longitudCombinacion = leoLongitud(args[0]);
+			this.numeroIntentos = leoIntentos(args[1]);
+			this.repetidos = leoRepetidos(args[2]);
+
+		
+	}
+//lectura si se pueden repetidos o no
+	private static boolean leoRepetidos(String argumentos_2) {
+		boolean repetidos;
+		if (argumentos_2.equals("true")) {
+			return true;
+		} else if (argumentos_2.equals("false")) {
+			return false;
+		} else {
+			System.out.println("valor introducido no valido");
+			System.exit(0);
+		}
+		return false;
+	}
+
+	//lectura intendos
+	private static int leoIntentos(String argumentos_1) {
+		int intentos = 0;
+		try {// se añade una exception
+			intentos = Integer.parseInt(argumentos_1);
+		} catch (NumberFormatException e) {
+			System.out.println("El segundo elemento debe de ser un numero");
+			System.exit(0);// para salirte del programa
+		}
+		if (intentos <= 0) {// excepcion, el numero no puede ser negativo
+			System.out
+					.println("El segundo elemento debe de ser un numero mayor de 0");
+			System.exit(0);
+		}
+		return intentos;
+	}
+	//lectura longitud
+	private static int leoLongitud(String argumentos_0) {
+		int longitud = 0;
+		try {// se añade una exception, por si se introduce una letra o un
+				// numero negativo
+			longitud = Integer.parseInt(argumentos_0);
+		} catch (NumberFormatException e) {
+			System.out.println("El primer elemento debe de ser un numero");
+			System.exit(0);// para salirte del programa
+		}
+		if (longitud <= 0) {// excepcion, el numero no puede ser negativo
+			System.out
+					.println("El primer elemento debe de ser un numero mayor de 0");
+			System.exit(0);
+		}
+		return longitud;
+	}
+
+	public int getLongitudCombinacion() {
+		return longitudCombinacion;
+	}
+
+	public int getNumeroIntentos() {
+		return numeroIntentos;
+	}
+
+	public boolean isRepetidos() {
+		return repetidos;
+	}
+}
