@@ -1,6 +1,6 @@
 
 public class Uimastermind {
-	// clase para leer los argumentos
+	// clase para leer los argumentosss
 	private int longitudCombinacion;
 	private int numeroIntentos;
 	private boolean repetidos;
